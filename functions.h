@@ -30,7 +30,7 @@ typedef struct { char *key; int val; } t_symstruct;
 user primary;
 
 void hosgeldiniz(char* name, char* cinsiyet) {
-	printf("\n\
+	printf("\
 ##################################\n\
 # Cagan'ın mekanına hoş geldiniz #\n\
 ##################################");
@@ -139,7 +139,9 @@ void icecek(char* name, int money) {
 }
 
 void oyun() {
-
+    printf("Hangi oyunu oynamak istersiniz? ");
+    ps1(primary.Name, primary.money);
+    scanf("%s", istek);
 }
 
 void ps1(char* name, int money) {
