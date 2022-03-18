@@ -1,4 +1,4 @@
 # CagansPlace
 A simple roleplay game written in C
 
-compile with 'gcc main.c'
+compile with `gcc main.c`
