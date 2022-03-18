@@ -16,6 +16,11 @@ char yiyecektablosu[512] = "                          \n\
 2 - Izgara Köfte : 25TL | 5 - Domates : 5TL               \n\
 3 - Adana Kebap : 20TL  | 6 - Enginar : 30TL               \n\
 ";
+char oyuntablosu[512] = "\n\
+                 Oyunlar\n\
+-----------------------------------------\n\
+1 - Bowling : 10TL  |   2 - Bilardo : 20TL\n\
+";
 
 int yiyecek_fiyat(int no) {
     switch(no) {
@@ -32,8 +37,8 @@ int yiyecek_fiyat(int no) {
         case 6:
             return(30);
         default:
-            printf("Böyle bir yiyecek yok!");
-            return 0;
+            printf("Böyle bir yiyecek yok!\n");
+            exit(1);
     }
 }
 
@@ -53,6 +58,18 @@ int icecek_fiyat(int no) {
             return(50);
         default:
             printf("Böyle bir içecek yok!");
+            return 0;
+    }
+}
+
+int oyun_fiyat(int no) {
+    switch(no) {
+        case 1:
+            return(10);
+        case 2:
+            return(20);
+        default:
+            printf("Böyle bir oyun yok!");
             return 0;
     }
 }

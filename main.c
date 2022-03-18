@@ -3,6 +3,8 @@
 #include "functions.h"
 #include <stdlib.h>
 
+#define RED(string) "\x1b[31m" string "\x1b[0m"
+
 char* cagan = "					\n\
  ▄████▄   ▄▄▄        ▄████  ▄▄▄       ███▄    █ \n\
 ▒██▀ ▀█  ▒████▄     ██▒ ▀█▒▒████▄     ██ ▀█   █ \n\
@@ -23,7 +25,7 @@ void giris();
 char gir[256];
 
 void main() {
-	printf("%s", cagan);
+	printf(RED("%s"), cagan);
     giris();
 }
 
@@ -38,19 +40,22 @@ void login() {
 
 void giris() {
 
-    printf("Karakterimiz girişi gördüğü zaman girip girmemek konusunda kararsız kaldı. Ama saat iyice geç olmuştu ve bir an önce karar vermesi gerekiyordu.");
-    printf("\nGirecek misin?(Gir/girme) : ");
-    scanf("%s", gir);
+    printf("Karakterimiz girişi gördüğü zaman girip girmemek konusunda kararsız kaldı. Tabela kanla yazılmıştı. Ama saat iyice geç olmuştu ve bir an önce karar vermesi gerekiyordu.");
+    
+    while(strcmp(gir, "girme") != 0 || strcmp(gir, "Girme") != 0) {
+        printf("\nGirecek misin(Gir/girme) : ");
+        scanf("%s", gir);
 
-    if(strcmp(gir, "gir") == 0 || strcmp(gir, "Gir") == 0) {
-        login();
-    }
-    else if (strcmp(gir, "girme") == 0 || strcmp(gir, "Girme")) {
-        printf("Karakterimiz arkasını dönerek oradan uzaklaştı.\n");
-        exit(1);
-    }
-    else {
-        printf("Lütfen geçerli bir şey giriniz!");
-        exit(1);
+        if(strcmp(gir, "gir") == 0 || strcmp(gir, "Gir") == 0) {
+            login();
+        }
+        else if (strcmp(gir, "girme") == 0 || strcmp(gir, "Girme") == 0) {
+            printf("Karakterimiz arkasını dönerek oradan uzaklaştı.\n");
+            break;
+        }
+        else {
+            printf("Lütfen geçerli bir şey giriniz!\n");
+            continue;
+        }
     }
 }
