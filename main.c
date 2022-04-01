@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "functions.h"
+#include "functions.c"
 #include <stdlib.h>
 
 #define RED(string) "\x1b[31m" string "\x1b[0m"
@@ -23,19 +23,36 @@ char cinsiyet[256];
 void login();
 void giris();
 char gir[256];
+char* config = "$HOME/CagansPlace/character";
 
 void main() {
 	printf(RED("%s"), cagan);
     giris();
 }
 
+bool character_exist(const char *filename) {
+    FILE *fp = fopen(filename, "r");
+    bool is_exists = false;
+    if (fp != NULL) {
+        is_exists = true;
+        fclose(fp);
+    }
+    return is_exists;
+}
+
 void login() {
+    if (character_exist(config)) {
+        hosgeldiniz(isim, cinsiyet);
+    }
+    else {
+/*    os.command("mkdir $HOME/CagansPlace/ && touch $HOME/CagansPlace/character"); */
 	printf("Cagan'ın mekanı! Adınız nedir? : ");
 	scanf("%s", isim);
 	printf("Cinsiyet? (Bay/Bayan) : ");
 	scanf("%s", cinsiyet);
 
 	hosgeldiniz(isim, cinsiyet);
+    }
 }
 
 void giris() {
