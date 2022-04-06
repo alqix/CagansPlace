@@ -45,7 +45,7 @@ void login() {
         hosgeldiniz(isim, cinsiyet);
     }
     else {
-/*    os.command("mkdir $HOME/CagansPlace/ && touch $HOME/CagansPlace/character"); */
+    system("mkdir $HOME/CagansPlace/ && touch $HOME/CagansPlace/character");
 	printf("Cagan'ın mekanı! Adınız nedir? : ");
 	scanf("%s", isim);
 	printf("Cinsiyet? (Bay/Bayan) : ");

@@ -18,6 +18,8 @@ void oyun();
 void ps1();
 void konus();
 void konus_ahmet();
+void konus_john();
+void konus_mehmet();
 
 char istek[256];
 static int yiyecek_istek;
@@ -208,9 +210,23 @@ void ps1(char* name, int money) {
     printf("["GREEN("$%d")"] %s : ", money, name);
 }
 
-void konus(char* name_of_listener, int money) {
-    if (strcmp(name_of_listener, "Ahmet") || strcmp(name_of_listener, "Ahmet")) {
-        konus_ahmet(primary.Name, money);    
+void konus(char* name, int money) {
+    printf("Kiminle konuşmak isterseniz:\n\
+            1. Ahmet\n\
+            2. Mehmet\n\
+            3. John");
+    ps1(name, money);
+    scanf("%d", &oyun_istek);
+    switch(oyun_istek) {
+        case 1:
+            konus_ahmet(name, money);
+        case 2:
+            konus_mehmet(name, money);
+        case 3:
+            konus_john(name, money);
+        default:
+            printf("Böyle birisi yok!");
+            konus(name, money);
     }
 }
 
@@ -228,4 +244,12 @@ void konus_mehmet(char* name, int money) {
     ps1(name, money);
     scanf("%d", &oyun_istek);
     printf("[Ahmet] : %s", mehmet_answer(oyun_istek));
+}
+
+void konus_john(char* name, int money) {
+    printf("[John] : Hi %s!", name);
+    printf("Birini seçiniz:%s", john_cevap);
+    ps1(name, money);
+    scanf("%d", &oyun_istek);
+    printf("[John] : %s", john_answer(oyun_istek));
 }
