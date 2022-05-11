@@ -216,40 +216,7 @@ void konus(char* name, int money) {
             2. Mehmet\n\
             3. John");
     ps1(name, money);
-    scanf("%d", &oyun_istek);
-    switch(oyun_istek) {
-        case 1:
-            konus_ahmet(name, money);
-        case 2:
-            konus_mehmet(name, money);
-        case 3:
-            konus_john(name, money);
-        default:
-            printf("Böyle birisi yok!");
-            konus(name, money);
-    }
-}
-
-void konus_ahmet(char* name, int money) {
-    printf("[Ahmet] : Merhaba %s!", name);
-    printf("Birini seçiniz:%s", ahmet_cevap);
-    ps1(name, money);
-    scanf("%d", &oyun_istek);
-    printf("[Ahmet] : %s", ahmet_answer(oyun_istek));
-}
-
-void konus_mehmet(char* name, int money) {
-    printf("[Mehmet] : Merhaba %s!", name);
-    printf("Birini seçiniz:%s", mehmet_cevap);
-    ps1(name, money);
-    scanf("%d", &oyun_istek);
-    printf("[Ahmet] : %s", mehmet_answer(oyun_istek));
-}
-
-void konus_john(char* name, int money) {
-    printf("[John] : Hi %s!", name);
-    printf("Birini seçiniz:%s", john_cevap);
-    ps1(name, money);
-    scanf("%d", &oyun_istek);
-    printf("[John] : %s", john_answer(oyun_istek));
+    char who[256];
+    scanf("%s", who);
+    answer(who);
 }
